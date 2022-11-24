@@ -26,17 +26,17 @@ Step 2:
 <br>
 
 Step 3:
-**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP]("")**
+**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP]("")** <br>
 <img src="images/push_snap_website.jpg">
 
-<br>
+<br><br>
 
 Step 4:
 **In the push notification snap website user need to connect the metamask wallet. after connecting the installation process to install the snap will be started and metamask will ask permission to install the snap.**
 
 <table>
   <tr>
-    <td valign="top"><img src="images/connection.jpg"/></td>
+    <!-- <td valign="top"><img src="images/connection.jpg"/></td> -->
     <td valign="top"><img src="images/data_access.jpg"/></td>
   </tr>
 </table>
