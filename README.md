@@ -36,8 +36,9 @@ Step 4:
 
 <table>
   <tr>
-    
-    <td valign="top"><img src="images/data_access.jpg"/></td>
+    <td valign="top">
+    <img src="images/data_access.jpg"/>
+    </td>
   </tr>
 </table>
 <br>
@@ -56,3 +57,9 @@ step 6: **After installing the snap. It will start to fetch notification and dis
 Following the above steps user can receive push notification in the metamask. Notification has some constraints and their solution will be explained in the developer documentation section.
 
 ## For developers
+
+<p>Snaps that have been installed will operate in a sandboxed environment and have access to metmask via api requests. Various requests require access permissions, which are granted during snap installation. </p>
+
+<br>
+<p>
+Before we start the task, let's take a deep dive into Snap Ocean to learn more. snaps are installed inside the metamask application and run in `full virtualizable` execution environment, For more detials visit  </p> [metamask docs](https://docs.metamask.io/guide/snaps.html#execution-environment)
