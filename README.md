@@ -19,13 +19,13 @@ Step 1: **User need to install metmask flask build from the above link. In order
 <img src="images/devloper_mode.jpg"/>
 
 <br>
-Step 2: ** After installing the metamask flask user need to create/import a wallet.**
+Step 2: **After installing the metamask flask user need to create/import a wallet.**
 
 <br>
 
 Step 3:
-**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP ]("")**
-<img src="images/push_snap_webiste">
+**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP]("")**
+<img src="images/push_snap_webiste.jpg">
 
 <br>
 
