@@ -65,8 +65,96 @@ Before we start the task, let's take a deep dive into Snap Ocean to learn more. 
 
 [metamask docs](https://docs.metamask.io/guide/snaps.html#execution-environment)
 
-Understanding the snap lifespan is crucial. Snaps are made to awaken in reaction to notifications and events. A snap will be terminated if MetaMask notices that it has become unresponsive or idle.
+Understanding the snap lifespan is crucial. Snaps are made to awaken in reaction to rpc calls and events. A snap will be terminated if MetaMask notices that it has become unresponsive or idle.
 
 - A snap is considered "unresponsive" if:
-- It has not received a JSON-RPC request for 30 seconds.
-- It takes more than 60 seconds to process a JSON-RPC request.
+  - It has not received a JSON-RPC request for 30 seconds.
+  - It takes more than 60 seconds to process a JSON-RPC request.
+
+for more details visit [snap life cycle](https://docs.metamask.io/guide/snaps-development-guide.html#the-snap-lifecycle)
+
+## Snap Manifest file
+
+In order to get Metamask to execute snap, a valid `snap.manifest.json` file is rquired. located in `packages\snap\`
+
+```json
+{
+  "version": "0.1.0",
+  "description": " Push Snap allow users to receive notification in metamask",
+  "proposedName": "PUSH  SNAP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+  },
+  "source": {
+    "shasum": "JKeEDSd3GhJ/3PHTaJJ+1sQIVDOv9Uz5npqeFmSU85M=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "packagename",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_confirm": {},
+    "endowment:network-access": {},
+    "snap_notify": {},
+    "eth_accounts": {},
+    "endowment:long-running": {},
+    "snap_manageState": {},
+    "endowment:cronjob": {
+      "jobs": [
+        {
+          "expression": "* * * * *",
+          "request": {
+            "method": "check",
+            "params": ["cronjob_param"]
+          }
+        }
+      ]
+    }
+  },
+  "manifestVersion": "0.1"
+}
+```
+
+<br>
+Manifest file holds importanat information about snap like hash ,initial permission,source location etc.
+
+## permissions
+
+we need permission in order to access different things in metamask. if a snap need to access eth_accounts it should mention in the manifest file. I am not explaning about all permissions in our mainfest file. You can vist [metamask docs](https://docs.metamask.io/guide/snaps-development-guide.html#permissions)
+
+`endowment:cronjob` <br>
+
+To display notifications in the metamask, we must periodically check for notifications using snap. Snaps are made to awaken in reaction to rpc calls and events. for perodic runnning of snap we are using cronojob.Cronjob feature will add new possibility to periodically run specific Snap RPC methods. Cronjob feature is implemented as a new permission with caveats that are used to specify job methods, parameters and schedule using CRON syntax.
+
+```json
+"endowment:cronjob": {
+      "jobs": [
+        {
+          "expression": "* * * * *",
+          "request": {
+            "method": "check",
+            "params": ["cronjob_param"]
+          }
+        }
+      ]
+    }
+```
+
+Supported format
+
+```
+*    *    *    *    *    *
+┬    ┬    ┬    ┬    ┬    ┬
+│    │    │    │    │    |
+│    │    │    │    │    └ day of week (0 - 7, 1L - 7L) (0 or 7 is Sun)
+│    │    │    │    └───── month (1 - 12)
+│    │    │    └────────── day of month (1 - 31, L)
+│    │    └─────────────── hour (0 - 23)
+│    └──────────────────── minute (0 - 59)
+└───────────────────────── second (0 - 59, optional)
+```
