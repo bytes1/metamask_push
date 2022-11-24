@@ -61,5 +61,6 @@ Following the above steps user can receive push notification in the metamask. No
 <p>Snaps that have been installed will operate in a sandboxed environment and have access to metmask via api requests. Various requests require access permissions, which are granted during snap installation. </p>
 
 <br>
-<p>
-Before we start the task, let's take a deep dive into Snap Ocean to learn more. snaps are installed inside the metamask application and run in `full virtualizable` execution environment, For more detials visit  </p> [metamask docs](https://docs.metamask.io/guide/snaps.html#execution-environment)
+Before we start the task, let's take a deep dive into Snap Ocean to learn more. snaps are installed inside the metamask application and run in `full virtualizable` execution environment, For more detials visit
+
+[metamask docs](https://docs.metamask.io/guide/snaps.html#execution-environment)
