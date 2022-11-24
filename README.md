@@ -64,3 +64,9 @@ Following the above steps user can receive push notification in the metamask. No
 Before we start the task, let's take a deep dive into Snap Ocean to learn more. snaps are installed inside the metamask application and run in `full virtualizable` execution environment, For more detials visit
 
 [metamask docs](https://docs.metamask.io/guide/snaps.html#execution-environment)
+
+Understanding the snap lifespan is crucial. Snaps are made to awaken in reaction to notifications and events. A snap will be terminated if MetaMask notices that it has become unresponsive or idle.
+
+- A snap is considered "unresponsive" if:
+- It has not received a JSON-RPC request for 30 seconds.
+- It takes more than 60 seconds to process a JSON-RPC request.
