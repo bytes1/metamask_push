@@ -32,11 +32,27 @@ Step 3:
 <br><br>
 
 Step 4:
-**In the push notification snap website user need to connect the metamask wallet. after connecting the installation process to install the snap will be started and metamask will ask permission to install the snap.**
+**In the push notification snap website user need to connect the metamask wallet. after connecting the installation process to install the snap will be started and metamask will ask permission to install the snap. Snap will ask different access permission for execution of the snap in the sandbox**
 
 <table>
   <tr>
-    <!-- <td valign="top"><img src="images/connection.jpg"/></td> -->
+    
     <td valign="top"><img src="images/data_access.jpg"/></td>
   </tr>
 </table>
+<br>
+step 5:
+
+**After installing the snap user can see installed sanp from metamask settings.`settings->snaps`** <br>
+
+<img src="images/snap_running.jpg"/>
+<br>
+
+step 6: **After installing the snap. It will start to fetch notification and display it to metamask. Metamask has native and inapp notification support.** <br>
+
+<img src="images/notification_expand.jpg"> <br>
+<img src="images/notification_box.jpg"> <br>
+
+Following the above steps user can receive push notification in the metamask. Notification has some constraints and their solution will be explained in the developer documentation section.
+
+## For developers
