@@ -64,7 +64,7 @@ Following the above steps user can receive push notification in the metamask. No
 
 ## For developers
 
-\*\* we cannot use `PUSHSDK` for fetching notification from the server in snaps. In `PUSHSDK` uses `axios` is another popular networking library that leverages `XMLHttpRequest` under the hood. currently snaps does not support `axios`
+**currently we cannot use `PUSHSDK` for fetching notification from the server in snaps. In `PUSHSDK` uses `axios` is another popular networking library that leverages `XMLHttpRequest` under the hood. currently snaps does not support `axios`.**
 
 <p>Snaps that have been installed will operate in a sandboxed environment and have access to metmask via api requests. Various requests require access permissions, which are granted during snap installation. </p>
 
@@ -170,3 +170,5 @@ Supported format
 in our push notfication snap it will check for new notification in every minutues. cronjob will send an RPC request to invoke `check` method to fetch the request from the sever using `push API`.
 
 **`snap_manageState`**
+
+`snap_manageState` is only Callable by
