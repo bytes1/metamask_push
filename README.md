@@ -196,3 +196,37 @@ export const onCronjob: OnRpcRequestHandler = ({ origin, request }) => {
 Above code will work according to cronjob events in a snap. In order to call the `cronjobMethod`, it must be specified in the snap manifest file's initial permissions.
 
 In devloper section i have explained about snap limitation to work with pushsdk. so we are fetching notfication using the API.
+
+```typescript
+const getEOAAccount = async (): Promise<string> => {
+  const accounts: any = await wallet.request({ method: 'eth_accounts' });
+  return accounts[0];
+};
+```
+
+Above code is used to read current selected wallet address from metamask. This wallet address is used to fetch notifications using api.
+
+```typescript
+await wallet.request({
+  method: 'snap_manageState',
+  params: ['update', { hello: 'world' }],
+});
+
+// Then, at some later time, let's get the data we stored
+const persistedData = await wallet.request({
+  method: 'snap_manageState',
+  params: ['get'],
+});
+```
+
+We can presist data and retrive data using `snap_manageState`. `update` parameter is used to update\store information in metamask and `get` information is used to retrive stored infomation from metamask.
+
+# Contributing
+
+**If you have suggestions on how to improve this snap, or would like to further develop Push Snap, please submit a pull request to `collaboration.txt` with your details.**
+
+what's next
+
+- custom message ui
+- option to send notification/ message from metamask
+- channel opt-in/opt-out option in metamask UI

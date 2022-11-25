@@ -1,5 +1,5 @@
 import { OnRpcRequestHandler } from '@metamask/snap-types';
-import { ethers, Wallet as EOAWallet } from 'ethers';
+// import { ethers, Wallet as EOAWallet } from 'ethers';
 
 type Notfication = {
   feeds: [];
