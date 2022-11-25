@@ -26,7 +26,7 @@ Step 2:
 <br>
 
 Step 3:
-**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP]("")** <br>
+**To receive notification to metamask user need to install `push snap` form this link [PUSH SNAP](https://push1.netlify.app/)** <br>
 <img src="images/push_snap_website.jpg">
 
 <br><br>
@@ -63,6 +63,8 @@ step 6: **After installing the snap. It will start to fetch notification and dis
 Following the above steps user can receive push notification in the metamask. Notification has some constraints and their solution will be explained in the developer documentation section.
 
 ## For developers
+
+\*\* we cannot use `PUSHSDK` for fetching notification from the server in snaps. In `PUSHSDK` uses `axios` is another popular networking library that leverages `XMLHttpRequest` under the hood. currently snaps does not support `axios`
 
 <p>Snaps that have been installed will operate in a sandboxed environment and have access to metmask via api requests. Various requests require access permissions, which are granted during snap installation. </p>
 
