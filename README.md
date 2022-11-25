@@ -39,6 +39,12 @@ Step 4:
     <td valign="top">
     <img src="images/data_access.jpg"/>
     </td>
+    <td valign="top">
+    <img src="images/npm_snap.jpg"/>
+    </td>
+     <td valign="top">
+    <img src="images/pushlearn.jpg"/>
+    </td>
   </tr>
 </table>
 <br>
@@ -92,7 +98,7 @@ In order to get Metamask to execute snap, a valid `snap.manifest.json` file is r
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "packagename",
+        "packageName": "pushlearnnotify",
         "registry": "https://registry.npmjs.org/"
       }
     }
@@ -127,7 +133,7 @@ Manifest file holds importanat information about snap like hash ,initial permiss
 
 we need permission in order to access different things in metamask. if a snap need to access eth_accounts it should mention in the manifest file. I am not explaning about all permissions in our mainfest file. You can vist [metamask docs](https://docs.metamask.io/guide/snaps-development-guide.html#permissions)
 
-`endowment:cronjob` <br>
+**`endowment:cronjob`** <br>
 
 To display notifications in the metamask, we must periodically check for notifications using snap. Snaps are made to awaken in reaction to rpc calls and events. for perodic runnning of snap we are using cronojob.Cronjob feature will add new possibility to periodically run specific Snap RPC methods. Cronjob feature is implemented as a new permission with caveats that are used to specify job methods, parameters and schedule using CRON syntax.
 
@@ -158,3 +164,7 @@ Supported format
 │    └──────────────────── minute (0 - 59)
 └───────────────────────── second (0 - 59, optional)
 ```
+
+in our push notfication snap it will check for new notification in every minutues. cronjob will send an RPC request to invoke `check` method to fetch the request from the sever using `push API`.
+
+**`snap_manageState`**
