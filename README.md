@@ -14,7 +14,7 @@ Users need Metamask flask to run sanps.MetaMask Flask is a distribution of the s
 For running `PUSH SNAP` user to install this flask build: [Metamask Flask](https://vault.elephantdrive.com/web_access/shares/v2/links/redeem_share.aspx#/AAAAAAAAAACtX30fww3OcQ/1)
 <img src="images/metamask.png"/>
 
-Step 1: **User need to install metmask flask build from the above link. In order to load the metamask build, the user must enable developer mode in their extensions.**
+Step 1: **User need to install metmask flask build from the above link. In order to load the metamask build, the user must enable developer mode in their extensions. After downloading the ZIP file. The user has to unzip the file and load his flask build of Metamask depending on the browser.**
 `(chrome/brave)->settings -> Extension` ( for enabling developer mode)
 <img src="images/devloper_mode.jpg"/>
 
@@ -167,7 +167,7 @@ Supported format
 └───────────────────────── second (0 - 59, optional)
 ```
 
-in our push notfication snap it will check for new notification in every minutues. cronjob will send an RPC request to invoke `check` method to fetch the request from the sever using `push API`.
+in our push notfication snap it will check for new notification in every minutues. cronjob will send an RPC request to invoke `check` method to fetch the request from the sever using `push API`. For more details of `CRONJOB` vist this [website](https://crontab.guru/every-2-minutes)
 
 **`snap_manageState`**
 
@@ -180,3 +180,17 @@ in our push notfication snap it will check for new notification in every minutue
 [Metamask snap docs](https://docs.metamask.io/guide/snaps.html#extend-the-functionality-of-metamask) <br>
 [snaps-monorepo](https://github.com/MetaMask/snaps-monorepo) <br>
 [Snap template](https://github.com/MetaMask/template-snap-monorepo)<br>
+
+```typescript
+export const onCronjob: OnRpcRequestHandler = ({ origin, request }) => {
+  switch (request.method) {
+    case 'cronjobMethod':
+      console.log('cronjobMethod fired');
+      break;
+    default:
+      throw new Error('Method not found.');
+  }
+};
+```
+
+Above code will work according to cronjob events in a snap. In order to call the `cronjobMethod`, it must be specified in the snap manifest file's initial permissions.
