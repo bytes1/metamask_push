@@ -11,7 +11,7 @@
 ## For Frontend Users
 
 Users need Metamask flask to run sanps.MetaMask Flask is a distribution of the software designed for developers. It's like a laboratory (hence the name) where the MetaMask team can try out new ideas and features. <br>
-For running `PUSH SNAP` user to install this flask build: [Metamask Flask]("")
+For running `PUSH SNAP` user to install this flask build: [Metamask Flask](https://vault.elephantdrive.com/web_access/shares/v2/links/redeem_share.aspx#/AAAAAAAAAACtX30fww3OcQ/1)
 <img src="images/metamask.png"/>
 
 Step 1: **User need to install metmask flask build from the above link. In order to load the metamask build, the user must enable developer mode in their extensions.**
@@ -92,7 +92,7 @@ In order to get Metamask to execute snap, a valid `snap.manifest.json` file is r
   "proposedName": "PUSH  SNAP",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/bytes1/metamask_push.git"
   },
   "source": {
     "shasum": "JKeEDSd3GhJ/3PHTaJJ+1sQIVDOv9Uz5npqeFmSU85M=",
@@ -171,4 +171,12 @@ in our push notfication snap it will check for new notification in every minutue
 
 **`snap_manageState`**
 
-`snap_manageState` is only Callable by
+`snap_manageState` is only Callable by snaps that are used presist some data to the disk and retrive it at will. The data is automatically encrypted using a snap-specific key and automatically decrypted when retrieved. In our snap it is used to store received notifications.
+
+# Implementation details
+
+## Resources/References
+
+[Metamask snap docs](https://docs.metamask.io/guide/snaps.html#extend-the-functionality-of-metamask) <br>
+[snaps-monorepo](https://github.com/MetaMask/snaps-monorepo) <br>
+[Snap template](https://github.com/MetaMask/template-snap-monorepo)<br>

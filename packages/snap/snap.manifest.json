@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "description": " Push Snap allow users to receive notification in metamask",
+  "proposedName": "PUSH  SNAP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytes1/metamask_push.git"
+  },
+  "source": {
+    "shasum": "e0zJn2u2qMH+74EGKk5zW1mA/L53sNZpr7XFuW4e/1Q=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "pushlearnnotify",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_confirm": {},
+    "endowment:network-access": {},
+    "snap_notify": {},
+    "eth_accounts": {},
+    "endowment:long-running": {},
+    "snap_manageState": {},
+    "endowment:cronjob": {
+      "jobs": [
+        {
+          "expression": "* * * * *",
+          "request": {
+            "method": "check",
+            "params": ["cronjob_param"]
+          }
+        }
+      ]
+    }
+  },
+  "manifestVersion": "0.1"
+}
