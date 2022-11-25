@@ -194,3 +194,5 @@ export const onCronjob: OnRpcRequestHandler = ({ origin, request }) => {
 ```
 
 Above code will work according to cronjob events in a snap. In order to call the `cronjobMethod`, it must be specified in the snap manifest file's initial permissions.
+
+In devloper section i have explained about snap limitation to work with pushsdk. so we are fetching notfication using the API.
